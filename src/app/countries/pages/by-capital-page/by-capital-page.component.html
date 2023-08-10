@@ -4,10 +4,20 @@
 <div class="row">
     <div class="col">
         <!-- Search Box -->
-        <shared-search-box
+
+        <!-- 
+            * Funciona con enter
+            <shared-search-box
             (onValueEmitter) = "searchByCapital($event);"
             placeholder="Buscar por Capital "
-        ></shared-search-box>
+        ></shared-search-box> -->
+
+        <shared-search-box
+            (onDebaunceEmitter)="searchByCapital($event);"
+            [initialTerm] = "initialTerm"
+            placeholder="Buscar por Capital "
+        ></shared-search-box> 
+
     </div>
 </div>
 
@@ -15,7 +25,9 @@
     <div class="col">
         <hr>
 
-        <shared-loading-spinner></shared-loading-spinner>
+        <shared-loading-spinner
+            *ngIf="isLoading"
+        ></shared-loading-spinner>
 
         <countries-table [countries]="countriesList"></countries-table>
     </div>

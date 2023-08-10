@@ -1,6 +1,16 @@
-<input type="text" 
+<!-- 
+        * Funcionalidad con enter
+        <input type="text" 
         class="form-control"
         [placeholder] = "placeholder"
         (keyup.enter)="emitterValue(txtSearchInput.value)"
+        #txtSearchInput
+        > -->
+
+<input type="text" 
+        class="form-control"
+        [placeholder] = "placeholder"
+        [value] = "initialTerm"
+        (keyup)="onKeyPress(txtSearchInput.value)"
         #txtSearchInput
         >
